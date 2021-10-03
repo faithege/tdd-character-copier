@@ -11,7 +11,15 @@ export class CharacterCopier {
     }
 
     copy(){
-        const character = this.source.getChar()
-        this.destination.setChar(character)
+        while(true){
+            const character = this.source.getChar()
+            
+            if(character === "\n"){
+                break;
+            }
+            this.destination.setChar(character)
+        }
+        
+        
     }
 }

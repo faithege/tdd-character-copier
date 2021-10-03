@@ -4,10 +4,12 @@ export interface Source { //can be used by test doubles or by real thing
 
 export class SourceSpy implements Source {
     numberOfCalls: number = 0;
+    characters: string[] = ["a", "b", "c", "\n"]
 
     getChar(): string{
+        const character = this.characters[this.numberOfCalls]
         this.numberOfCalls++ //creating our own counter 
-        return "a" // this is a fake
+        return character 
     }
 
     wasCalled(): boolean{

@@ -4,19 +4,18 @@ export interface Destination {
 
 export class DestinationSpy implements Destination {
     numberOfCalls: number = 0;
-    character:string = ''
+    characters:string[] = []
 
-    setChar(character): string{ //implementation + detail on how being called = spy
+    setChar(character){ //implementation + detail on how being called = spy
         this.numberOfCalls++ //creating our own counter 
-        this.character = character
-        return undefined
+        this.characters.push(character)
     }
 
     wasCalled(): boolean{
         return this.numberOfCalls > 0
     }
 
-    recordedCharacter(): string{
-        return this.character
+    recordedCharacters(): string[]{
+        return this.characters
     }
 }
