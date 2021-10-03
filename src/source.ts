@@ -7,8 +7,7 @@ export class SourceSpy implements Source {
 
     getChar(): string{
         this.numberOfCalls++ //creating our own counter 
-        //we don't care about the actual implementation
-        return undefined
+        return "a" // this is a fake
     }
 
     wasCalled(): boolean{

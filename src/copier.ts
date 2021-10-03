@@ -11,6 +11,7 @@ export class CharacterCopier {
     }
 
     copy(){
-        throw new Error("Not implemented yet");
+        const character = this.source.getChar()
+        this.destination.setChar(character)
     }
 }

@@ -14,4 +14,15 @@ describe('The character copier should', () => {
     expect(source.wasCalled).toBeTruthy;
     expect(destination.wasCalled).toBeTruthy;
   });
+
+  it('destination should return the character a when a is passed into the source', () => {
+    const destination = new DestinationSpy
+    const source = new SourceSpy
+
+    const copier = new CharacterCopier(source, destination)
+
+    copier.copy()
+
+    expect(destination.recordedCharacter()).toEqual("a");
+  });
 });

@@ -1,17 +1,22 @@
 export interface Destination {
-    setChar(): void
+    setChar(character: string): void
 }
 
 export class DestinationSpy implements Destination {
     numberOfCalls: number = 0;
+    character:string = ''
 
-    setChar(): string{
+    setChar(character): string{ //implementation + detail on how being called = spy
         this.numberOfCalls++ //creating our own counter 
-        //we don't care about the actual implementation
+        this.character = character
         return undefined
     }
 
     wasCalled(): boolean{
         return this.numberOfCalls > 0
+    }
+
+    recordedCharacter(): string{
+        return this.character
     }
 }
